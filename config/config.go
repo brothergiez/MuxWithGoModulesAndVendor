@@ -9,7 +9,6 @@ import (
 // Represents database server and credentials
 type Config struct {
 	Dbhost string
-	Dbport int
 	Dbname string
 }
 

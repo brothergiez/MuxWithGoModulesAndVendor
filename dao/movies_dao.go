@@ -3,21 +3,21 @@ package dao
 import (
 	"log"
 
+	. "myproject/models"
+
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	."myproject/models"
 )
 
 type MoviesDAO struct {
 	Dbhost string
-	Dbport int
 	Dbname string
 }
 
 var db *mgo.Database
 
 const (
-	COLLECTION = "movies2"
+	COLLECTION = "movies"
 )
 
 // Establish a connection to database

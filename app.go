@@ -6,15 +6,13 @@ import (
 	"net/http"
 	"strings"
 
-	"gopkg.in/mgo.v2/bson"
+	. "myproject/config"
+	. "myproject/dao"
+	. "myproject/models"
+
 	"github.com/gorilla/mux"
-	."myproject/config"
-	."myproject/dao"
-	."myproject/models"
-
+	"gopkg.in/mgo.v2/bson"
 )
-
-
 
 var config = Config{}
 var dao = MoviesDAO{}
@@ -102,7 +100,6 @@ func init() {
 	config.Read()
 
 	dao.Dbhost = config.Dbhost
-	dao.Dbport = config.Dbport
 	dao.Dbname = config.Dbname
 	dao.Connect()
 }
@@ -116,7 +113,6 @@ func loggingMiddleware(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
-
 
 // Define HTTP request routes
 func main() {
